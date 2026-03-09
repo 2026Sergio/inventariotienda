@@ -1,5 +1,12 @@
+import inventario
+
+# Función para separar visualmente los menús
+def separador():
+    print("-"*15)
+
 def menu_principal():
-    menu = """
+    separador()
+    print("""
 BIENVENIDO 
 1. AGREGAR PRODUCTO
 2. LISTA PRODUCTOS
@@ -7,48 +14,38 @@ BIENVENIDO
 4. ELIMINAR PRODUCTO
 5. CALCULAR VALOR TOTAL DEL INVENTARIO
 6. SALIR
-"""
-    print(menu)
+""")
+    separador()
 
-
-while True:
-    menu_principal()
-    opcion = input("Seleccione una opción: ")
-
-    if opcion == "1":
-        print("Agregar producto")
-
-    elif opcion == "2":
-        print("Lista de productos")
-
-    elif opcion == "3":
-        print("Actualizar cantidad")
-
-    elif opcion == "4":
-        print("Eliminar producto")
-
-    elif opcion == "5":
-        print("Calcular valor total")
-
-    elif opcion == "6":
-        print("Saliendo del programa...")
-        break
-
-    else:
-        print("Opción no válida")
-
-def lista_producto():
-    print("*"*15)
-
-def Actualizar_producto():
+def menu_agregar():
+    while True:
+        separador()
+        print("""
+=== AGREGAR PRODUCTO ===
+1. Ingresar nuevo producto
+2. Volver al menú principal
+""")
+        separador()
+        opcion = input("Seleccione una opción: ")
+        if opcion == "1":
+            nombre = input("Nombre: ")
+            precio = float(input("Precio (Q): "))
+            cantidad = int(input("Cantidad: "))
+            inventario.agregar_producto(nombre, precio, cantidad)
+            print("Producto agregado ✔")
+        elif opcion == "2":
+            break
+        else:
+            print("Opción inválida, intente de nuevo.")
+   
+def menu_lista():
     pass
 
-def Eliminar_producto():
+def menu_actualizar():
     pass
 
-def Calcular_valor_inventario():
+def menu_eliminar():
     pass
 
-def salir():
-    print("Saliendo del programa...")
-    exit()
+def menu_salir():
+    pass
