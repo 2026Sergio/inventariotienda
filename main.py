@@ -108,8 +108,32 @@ def menu_eliminar():
         else:
             print("Opción inválida, intente de nuevo.")
 
+def calcular_valor_inventario():
+    while True:
+        separador()
+        print("""
+=== VALOR TOTAL DEL INVENTARIO ===
+1. Mostrar valor total
+2. Volver al menú principal
+""")
+        separador()
+        opcion = input("Seleccione una opción: ")
+        if opcion == "1":
+            total = inventario.calcular_valor_total()
+            print(f"Valor total: Q{total}")
+        elif opcion == "2":
+            break
+        else:
+            print("Opción inválida, intente de nuevo.")
+
 def menu_salir():
-    pass
+    separador()
+    print("""
+GRACIAS POR USAR ESTE PROGRAMA
+""")
+    separador()
+
+
 
 while True:
     menu_principal()
