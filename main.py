@@ -39,13 +39,74 @@ def menu_agregar():
             print("Opción inválida, intente de nuevo.")
    
 def menu_lista():
-    pass
+    while True:
+        separador()
+        print("""
+=== LISTA DE PRODUCTOS ===
+1. Ver todos los productos
+2. Volver al menú principal
+""")
+        separador()
+        opcion = input("Seleccione una opción: ")
+        if opcion == "1":
+            productos = inventario.listar_productos()
+            if not productos:
+                print("No hay productos en el inventario.")
+            else:
+                for p in productos:
+                    print(f"{p['nombre']} - Q{p['precio']} - Cantidad: {p['cantidad']}")
+        elif opcion == "2":
+            break
+        else:
+            print("Opción inválida, intente de nuevo.")
 
 def menu_actualizar():
-    pass
+    while True:
+        separador()
+        print("""
+=== ACTUALIZAR PRODUCTO ===
+1. Actualizar producto
+2. Volver al menú principal
+""")
+        separador()
+        opcion = input("Seleccione una opción: ")
+        if opcion == "1":
+            tipo_buscar = input("Buscar producto por (nombre/precio/cantidad): ").lower()
+            valor_buscar = input(f"Ingrese el valor del {tipo_buscar} a buscar: ")
+            tipo_actualizar = input("Qué desea actualizar? (nombre/precio/cantidad): ").lower()
+            nuevo_valor = input("Ingrese el nuevo valor: ")
+            actualizados = inventario.actualizar_producto(valor_buscar, tipo_buscar, tipo_actualizar, nuevo_valor)
+            if actualizados > 0:
+                print(f"{actualizados} producto(s) actualizado(s) ✔")
+            else:
+                print("No se encontró ningún producto que coincida")
+        elif opcion == "2":
+            break
+        else:
+            print("Opción inválida, intente de nuevo.")
 
 def menu_eliminar():
     pass
 
 def menu_salir():
     pass
+
+while True:
+    menu_principal()
+    opcion = input("Seleccione una opción: ")
+
+    if opcion == "1":
+        menu_agregar()
+    elif opcion == "2":
+        menu_lista()
+    elif opcion == "3":
+        menu_actualizar()
+    elif opcion == "4":
+        menu_eliminar()
+    elif opcion == "5":
+        menu_valor()
+    elif opcion == "6":
+        menu_salir()
+        break
+    else:
+        print("Opción inválida, intente de nuevo.")
