@@ -23,4 +23,5 @@ escribir lo que necesita
 
 # Autor del proyecto:
 
-Sergio Ricardo Ajú Miranda
+
+Sergio Ricardo Ajú Mirandagit branch -M main
