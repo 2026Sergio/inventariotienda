@@ -1,6 +1,6 @@
 import inventario
 
-# Función para separar visualmente los menús
+
 def separador():
     print("-"*15)
 
@@ -148,7 +148,7 @@ while True:
     elif opcion == "4":
         menu_eliminar()
     elif opcion == "5":
-        menu_valor()
+        calcular_valor_inventario()
     elif opcion == "6":
         menu_salir()
         break
