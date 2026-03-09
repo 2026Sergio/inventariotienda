@@ -86,7 +86,27 @@ def menu_actualizar():
             print("Opción inválida, intente de nuevo.")
 
 def menu_eliminar():
-    pass
+    while True:
+        separador()
+        print("""
+=== ELIMINAR PRODUCTO ===
+1. Eliminar producto
+2. Volver al menú principal
+""")
+        separador()
+        opcion = input("Seleccione una opción: ")
+        if opcion == "1":
+            tipo_buscar = input("Eliminar producto por (nombre/precio/cantidad): ").lower()
+            valor_buscar = input(f"Ingrese el valor del {tipo_buscar} a eliminar: ")
+            eliminados = inventario.eliminar_producto(valor_buscar, tipo_buscar)
+            if eliminados:
+                print(f"{len(eliminados)} producto(s) eliminado(s) ✔")
+            else:
+                print("No se encontró ningún producto que coincida")
+        elif opcion == "2":
+            break
+        else:
+            print("Opción inválida, intente de nuevo.")
 
 def menu_salir():
     pass
